@@ -1,19 +1,35 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="section">
-    <h2 class="section-title">Fines</h2>
-    <ul>
+<h2 style="margin-top:26px; color:#563d7c;">
+    <i class="fa-solid fa-money-check-alt" style="color:#c32541;margin-right:10px;"></i>
+    Fines Overview
+</h2>
+<div style="background:#fff;box-shadow:0 2px 14px #ececec;border-radius:12px;padding:28px;">
+    <table style="width:100%;border-collapse:collapse;">
+        <tr style="background:#f6f7fb;">
+            <th>Student ID</th>
+            <th>Book ID</th>
+            <th>Fine Amount</th>
+            <th>Status</th>
+        </tr>
         {% for b in borrows %}
-            <li class="list-item">
-                <strong>Student {{ b.sid }}</strong> — Book {{ b.bid }}:
-                <span style="color: #e53e3e;">Fine ₹{{ b.fine }}</span>
+        <tr>
+            <td><i class="fa-solid fa-user" style="color:#2176d4;"></i> {{ b.sid }}</td>
+            <td>{{ b.bid }}</td>
+            <td style="color:#c32541;"><i class="fa-solid fa-rupee-sign"></i> ₹{{ b.fine }}</td>
+            <td>
                 {% if b.fine > 0 %}
-                    <span style="font-size:13px;color:#f39c12;">(Overdue)</span>
+                    <span style="color:#c32541;"><i class="fa-solid fa-exclamation-circle"></i> Overdue</span>
+                {% else %}
+                    <span style="color:#35b340;"><i class="fa-solid fa-check-circle"></i> Cleared</span>
                 {% endif %}
-            </li>
+            </td>
+        </tr>
         {% else %}
-            <li class="list-item">No fines found.</li>
+        <tr>
+            <td colspan="4">No fines found.</td>
+        </tr>
         {% endfor %}
-    </ul>
+    </table>
 </div>
 {% endblock %}

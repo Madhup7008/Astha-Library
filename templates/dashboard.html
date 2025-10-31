@@ -1,61 +1,41 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="section">
-    <h2 class="section-title">Students</h2>
-    <ul>
-    {% for s in students %}
-        <li class="list-item">
-            <strong>{{ s.name }}</strong> ({{ s.id }}) — <span style="color: #5b88d6;">{{ s.email }}</span>
-        </li>
-    {% else %}
-        <li class="list-item">No students found.</li>
-    {% endfor %}
-    </ul>
-</div>
+<h2 style="color:#563d7c; margin-top:28px; margin-bottom:16px; letter-spacing:.6px;">
+    <img src="{{ url_for('static', filename='Astha-Library-logo.jpeg') }}" alt="Logo" style="height:36px;vertical-align:middle;margin-right:12px;">
+    ADMIN DASHBOARD
+</h2>
 
-<div class="section">
-    <h2 class="section-title">Books</h2>
-    <ul>
-    {% for b in books %}
-        <li class="list-item">
-            <strong>{{ b.title }}</strong> by {{ b.author }} ({{ b.id }}) —
-            <span style="color: #28a745;">Copies: {{ b.copies }}</span>
-        </li>
-    {% else %}
-        <li class="list-item">No books available.</li>
-    {% endfor %}
-    </ul>
+<div class="dashboard-cards">
+    <div class="card green">
+        <i class="fa-solid fa-book"></i>
+        <div class="card-number">{{ books|length }}</div>
+        <div class="card-title">Books Listed</div>
+    </div>
+    <div class="card blue">
+        <i class="fa-solid fa-layer-group"></i>
+        <div class="card-number">{{ borrows|length }}</div>
+        <div class="card-title">Times Book Issued</div>
+    </div>
+    <div class="card gold">
+        <i class="fa-solid fa-recycle"></i>
+        <div class="card-number">{{ borrows|selectattr('return_date')|list|length }}</div>
+        <div class="card-title">Times Books Returned</div>
+    </div>
+    <div class="card red">
+        <i class="fa-solid fa-users"></i>
+        <div class="card-number">{{ students|length }}</div>
+        <div class="card-title">Registered Users</div>
+    </div>
+    <div class="card blue">
+        <i class="fa-solid fa-user-tie"></i>
+        <div class="card-number">{{ books|map(attribute='author')|unique|list|length }}</div>
+        <div class="card-title">Authors Listed</div>
+    </div>
+    <div class="card blue">
+        <i class="fa-solid fa-folder-open"></i>
+        <div class="card-number">6</div>
+        <div class="card-title">Listed Categories</div>
+    </div>
 </div>
-
-<div class="section">
-    <h2 class="section-title">Borrowed Books</h2>
-    <ul>
-    {% for br in borrows %}
-        <li class="list-item">
-            Student <strong>{{ br.sid }}</strong> borrowed <strong>{{ br.bid }}</strong> until {{ br.due_date }},
-            {% if br.return_date %}
-            returned on <span style="color:#2542b6;">{{ br.return_date }}</span>{% else %}
-            <span style="color: #f39c12;">Not returned</span>{% endif %},
-            Fine: <span style="color: #e53e3e;">₹{{ br.fine }}</span>
-        </li>
-    {% else %}
-        <li class="list-item">No borrowed books.</li>
-    {% endfor %}
-    </ul>
-</div>
-
-<div class="section">
-    <h2 class="section-title">Exams</h2>
-    <ul>
-    {% for e in exams %}
-        <li class="list-item">
-            Student <strong>{{ e.sid }}</strong> — {{ e.exam }}: <span style="color:#5b88d6;">{{ e.score }}</span>
-        </li>
-    {% else %}
-        <li class="list-item">No exams found.</li>
-    {% endfor %}
-    </ul>
-</div>
-
 {% endblock %}

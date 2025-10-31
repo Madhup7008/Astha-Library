@@ -1,28 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="section">
-    <h2 class="section-title">Add Student</h2>
-    <form method="post">
-        <label>Student ID:</label>
-        <input name="id" required>
-        <label>Name:</label>
-        <input name="name" required>
-        <label>Email:</label>
-        <input name="email" required>
-        <button class="button" type="submit">Add Student</button>
-    </form>
-</div>
-
-<div class="section">
-    <h2 class="section-title">Student List</h2>
-    <ul>
+<h2 style="margin-top:26px; color:#563d7c;">Registered Students</h2>
+<div style="background:#fff;box-shadow:0 2px 14px #ececec;border-radius:12px;padding:28px;">
+    <table style="width:100%;border-collapse:collapse;">
+        <tr style="background:#f6f7fb;">
+            <th>Name</th>
+            <th>User ID</th>
+            <th>Email</th>
+        </tr>
         {% for s in students %}
-            <li class="list-item">
-                <strong>{{ s.id }}</strong> — {{ s.name }} (<span style="color:#5b88d6;">{{ s.email }}</span>)
-            </li>
-        {% else %}
-            <li class="list-item">No students found.</li>
+        <tr>
+            <td>{{ s.name }}</td>
+            <td>{{ s.id }}</td>
+            <td>{{ s.email }}</td>
+        </tr>
         {% endfor %}
-    </ul>
+    </table>
 </div>
 {% endblock %}

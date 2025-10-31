@@ -1,85 +1,105 @@
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background: #edeef2;
     margin: 0;
+    background: #f6f7fb;
+    font-family: 'Roboto', Arial, sans-serif;
 }
-
-header {
-    background: #2d3541;
-    color: #fff;
-    padding: 1em 2em;
-    box-shadow: 0 2px 8px rgba(44,62,80,0.12);
-}
-
-header h2 {
-    margin: 0;
-    font-weight: 700;
-}
-
-nav {
-    margin-top: 8px;
-    font-size: 17px;
-}
-
-nav a {
-    color: #fff;
-    margin-right: 20px;
-    text-decoration: none;
-    padding: 2px 8px;
-    border-radius: 4px;
-    transition: background 0.15s;
-}
-
-nav a:hover {
-    background: #535b6e;
-}
-
-main {
-    padding: 35px 0;
-    min-height: 80vh;
-}
-
-.section {
+.nav-header {
     background: #fff;
-    margin: 20px auto;
-    max-width: 580px;
-    padding: 24px 30px 12px 30px;
-    box-shadow: 0 2px 14px rgba(44,62,80,0.070);
-    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(44,62,80,0.04);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    height: 70px;
 }
-
-.section-title {
-    margin-top: 0;
-    margin-bottom: 15px;
+.nav-logo {
+    display: flex;
+    align-items: center;
+}
+.nav-logo img {
+    height: 44px;
+    margin-right: 16px;
+}
+.nav-title {
     font-size: 22px;
+    font-weight: 700;
+    color: #563d7c;
+    letter-spacing: 1px;
+}
+.nav-menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 17px;
+    margin: 0 20px;
+    padding: 12px 10px;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.2s;
+}
+.nav-menu a:hover {
+    border-bottom: 2px solid #5b88d6;
+}
+.logout-btn {
+    background: #e53e3e;
+    padding: 10px 20px;
+    border-radius: 4px;
+    color: #fff !important;
     font-weight: 600;
-    color: #3a4154;
-    letter-spacing: 0.6px;
+}
+main {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 32px 0 0 0;
 }
 
-.list-item {
-    font-size: 16px;
-    padding: 7px 0;
-    border-bottom: 1px solid #e7e7eb;
+.dashboard-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 30px;
 }
-
-.list-item:last-child {
-    border-bottom: none;
+.card {
+    background: #fff;
+    box-shadow: 0 2px 18px #edeef5;
+    border-radius: 14px;
+    padding: 28px 38px;
+    min-width: 220px;
+    flex: 1 1 220px;
+    text-align: center;
+    position: relative;
+    transition: box-shadow 0.18s;
 }
-
-.button {
-    background: #4b72fa;
-    color: #fff;
-    padding: 8px 16px;
-    margin-top: 7px;
-    border: none;
-    border-radius: 5px;
+.card:hover {
+    box-shadow: 0 6px 30px #c1c2e5;
+}
+.card .fa-solid {
+    font-size: 42px;
+    margin-bottom: 16px;
+}
+.card.green .fa-solid {
+    color: #35b340;
+}
+.card.blue .fa-solid {
+    color: #2176d4;
+}
+.card.gold .fa-solid {
+    color: #bc8e11;
+}
+.card.red .fa-solid {
+    color: #c32541;
+}
+.card-title {
+    font-size: 18px;
+    margin-top: 12px;
+    color: #222;
+    margin-bottom: 8px;
+}
+.card-number {
+    font-size: 32px;
+    font-weight: bold;
+    color: #563d7c;
+    margin-top: 8px;
+}
+.card-sub {
     font-size: 15px;
-    cursor: pointer;
-    box-shadow: 0 1px 5px #ececec;
-    transition: background 0.15s;
-}
-
-.button:hover {
-    background: #2542b6;
+    color: #444;
 }

@@ -18,7 +18,11 @@ def calc_fine(due, ret):
     delta = (ret - due).days
     return 10 * max(0, delta)
 
-# Updated: Standalone, professional admin login page
+# NEW: Redirect root to admin login
+@app.route('/')
+def index():
+    return redirect(url_for('admin_login'))
+
 @app.route('/admin', methods=['GET', 'POST'])
 def admin_login():
     if session.get('admin'):

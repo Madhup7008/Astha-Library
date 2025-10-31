@@ -1,28 +1,27 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="section">
-    <h2 class="section-title">Record Exam Score</h2>
-    <form method="post">
-        <label>Student ID:</label>
-        <input name="sid" required>
-        <label>Exam Name:</label>
-        <input name="exam" required>
-        <label>Score:</label>
-        <input name="score" type="number" step="0.01" required>
-        <button class="button" type="submit">Record Score</button>
-    </form>
-</div>
-
-<div class="section">
-    <h2 class="section-title">Exam Results</h2>
-    <ul>
+<h2 style="margin-top:26px; color:#563d7c;">
+    <i class="fa-solid fa-file-signature" style="color:#bc8e11;margin-right:10px;"></i>
+    Exam Results
+</h2>
+<div style="background:#fff;box-shadow:0 2px 14px #ececec;border-radius:12px;padding:28px;">
+    <table style="width:100%;border-collapse:collapse;">
+        <tr style="background:#f6f7fb;">
+            <th>Student ID</th>
+            <th>Exam Name</th>
+            <th>Score</th>
+        </tr>
         {% for e in exams %}
-            <li class="list-item">
-                <strong>{{ e.sid }}</strong> — <span style="color:#535b6e;">{{ e.exam }}</span>: <span style="color:#5b88d6;">{{ e.score }}</span>
-            </li>
+        <tr>
+            <td><i class="fa-solid fa-id-card" style="color:#2176d4;"></i> {{ e.sid }}</td>
+            <td>{{ e.exam }}</td>
+            <td style="color:#bc8e11;"><i class="fa-solid fa-star"></i> {{ e.score }}</td>
+        </tr>
         {% else %}
-            <li class="list-item">No exam results yet.</li>
+        <tr>
+            <td colspan="3">No exam results yet.</td>
+        </tr>
         {% endfor %}
-    </ul>
+    </table>
 </div>
 {% endblock %}

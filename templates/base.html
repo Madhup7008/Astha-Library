@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Library Management Dashboard</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Astha Library Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 </head>
 <body>
-  <header>
-    <h2>Library System</h2>
-    <nav>
-      <a href="{{ url_for('dashboard') }}">Dashboard</a>
-      <a href="{{ url_for('student_list') }}">Students</a>
-      <a href="{{ url_for('books_list') }}">Books</a>
-      <a href="{{ url_for('exams_list') }}">Exams</a>
-      <a href="{{ url_for('fines_view') }}">Fines</a>
-      <a href="{{ url_for('logout') }}">Logout</a>
-    </nav>
-  </header>
-  <main>
-    {% block content %}{% endblock %}
-  </main>
+    <header class="nav-header">
+        <div class="nav-logo">
+            <img src="{{ url_for('static', filename='Astha-Library-logo.jpeg') }}" alt="Astha Library Logo">
+            <span class="nav-title">Astha Library</span>
+        </div>
+        <nav class="nav-menu">
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('books_list') }}">Books</a>
+            <a href="{{ url_for('student_list') }}">Students</a>
+            <a href="{{ url_for('exams_list') }}">Exams</a>
+            <a href="{{ url_for('fines_view') }}">Fines</a>
+            <a href="{{ url_for('logout') }}" class="logout-btn">Log out</a>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
 </body>
 </html>
