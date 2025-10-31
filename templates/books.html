@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="section">
+    <h2 class="section-title">Add Book</h2>
+    <form method="post">
+        <label>Book ID:</label>
+        <input name="id" required>
+        <label>Title:</label>
+        <input name="title" required>
+        <label>Author:</label>
+        <input name="author" required>
+        <label>Copies:</label>
+        <input name="copies" type="number" min="1" required>
+        <button class="button" type="submit">Add Book</button>
+    </form>
+</div>
+
+<div class="section">
+    <h2 class="section-title">Book List</h2>
+    <ul>
+        {% for b in books %}
+            <li class="list-item">
+                <strong>{{ b.id }}</strong>: <span style="color:#2542b6;">{{ b.title }}</span> by {{ b.author }} —
+                <span style="color: #28a745;">Copies: {{ b.copies }}</span>
+            </li>
+        {% else %}
+            <li class="list-item">No books available.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Library Management Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <h2>Library System</h2>
+    <nav>
+      <a href="{{ url_for('dashboard') }}">Dashboard</a>
+      <a href="{{ url_for('student_list') }}">Students</a>
+      <a href="{{ url_for('books_list') }}">Books</a>
+      <a href="{{ url_for('exams_list') }}">Exams</a>
+      <a href="{{ url_for('fines_view') }}">Fines</a>
+      <a href="{{ url_for('logout') }}">Logout</a>
+    </nav>
+  </header>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>
