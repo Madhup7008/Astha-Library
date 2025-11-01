@@ -15,30 +15,82 @@
       content: "";
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(25, 25, 30, 0.65); /* dark overlay for readability */
+      background: rgba(25, 25, 30, 0.65);
       z-index: 0;
     }
-    .container, main, header, nav {
-      position: relative;
+    .login-card {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      padding: 40px 36px 32px 36px;
+      border-radius: 12px;
+      box-shadow: 0 4px 32px #2224;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 340px;
       z-index: 1;
     }
+    .logo {
+      max-width: 140px;
+      margin-bottom: 16px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #2d2d40;
+      font-size: 26px;
+      font-weight: 600;
+    }
+    .error {
+      color: #e53e3e;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+    .form-group {
+      margin-bottom: 15px;
+      width: 100%;
+    }
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 9px 10px;
+      border-radius: 4px;
+      border: 1px solid #bbb;
+      font-size: 16px;
+      margin-top: 3px;
+    }
+    button[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background: #5a67d8;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 16px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    button[type="submit"]:hover {
+      background: #3542ba;
+    }
   </style>
-
 </head>
 <body>
-<div class="container">
-  <img src="{{ url_for('static', filename='Astha-Library-logo.jpeg') }}" alt="Astha Library Logo" class="logo" />
-  <h2>Admin Login</h2>
-  {% if error %}<div class="error">{{ error }}</div>{% endif %}
-  <form method="post">
-    <div class="form-group">
-      <input type="text" name="username" placeholder="Username" required>
-    </div>
-    <div class="form-group">
-      <input type="password" name="password" placeholder="Password" required>
-    </div>
-    <button type="submit">Login</button>
-  </form>
-</div>
+  <div class="login-card">
+    <img src="{{ url_for('static', filename='Astha-Library-logo.jpeg') }}" alt="Astha Library Logo" class="logo" />
+    <h2>Admin Login</h2>
+    {% if error %}<div class="error">{{ error }}</div>{% endif %}
+    <form method="post">
+      <div class="form-group">
+        <input type="text" name="username" placeholder="Username" required>
+      </div>
+      <div class="form-group">
+        <input type="password" name="password" placeholder="Password" required>
+      </div>
+      <button type="submit">Login</button>
+    </form>
+  </div>
 </body>
 </html>
