@@ -13,6 +13,26 @@
     button { width: 100%; padding: 10px; background: #5a67d8; color: #fff; border: none; border-radius: 4px; font-weight: bold;}
     .error { color: #e53e3e; margin-bottom: 12px; text-align: center;}
     .logo { display:block;margin:auto;max-width:150px;margin-bottom:15px;}
+    body {
+    background: url('{{ url_for("static", filename="book-image.jpeg") }}') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Optional: Overlay for improved readability */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(25, 25, 30, 0.65); /* dark overlay */
+    z-index: 0;
+}
+
+main, .container, header, nav {
+    position: relative;
+    z-index: 1;
+}
   </style>
 </head>
 <body>
