@@ -4,6 +4,25 @@
     <title>Astha Library Admin</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <style>
+body {
+    background: url('{{ url_for("static", filename="book-image.jpeg") }}') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    position: relative;
+}
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(25, 25, 30, 0.65); /* dark overlay */
+    z-index: 0;
+}
+main, .container, header, nav {
+    position: relative;
+    z-index: 1;
+}
+</style>
 </head>
 <body>
     <header class="nav-header">
